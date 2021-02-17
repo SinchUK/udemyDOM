@@ -24,3 +24,38 @@ const movieDB = {
     ]
 };
 
+// 1
+//  мой вариант
+// const promoBlock = document.querySelector('.promo__adv');
+// promoBlock.remove();
+// из урока вариант
+const adv = document.querySelectorAll('.promo__adv img');
+
+adv.forEach(item => {
+    item.remove();
+});
+
+// 2
+const poster = document.querySelector('.promo__bg'),
+      genre = poster.querySelector('.promo__genre');
+
+genre.textContent = 'Драма';
+
+// 3
+poster.style.backgroundImage = 'url("img/bg.jpg")';
+
+// 4 - 5
+const movieList = document.querySelector('.promo__interactive-list');
+console.log(movieList, "list movie");
+
+movieList.innerHTML = "";
+
+movieDB.movies.sort();
+
+movieDB.movies.forEach((film, i) => {
+    movieList.innerHTML += `
+      <li class="promo__interactive-item"> ${ i + 1 } ${film}  
+        <div class="delete"></div>
+      </li>
+    `;
+});
